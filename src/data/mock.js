@@ -57,6 +57,7 @@ export const games = [
     category: 'moba',
     trending: true,
     color: '#1a56db',
+    image: '/games/mlbb.jpg',
     icon: '⚔️',
     packages: [
       { id: 'ml-86', diamonds: 86, bonus: 0, price: 1.99, currency: 'USD' },
@@ -73,6 +74,7 @@ export const games = [
     category: 'battle-royale',
     trending: true,
     color: '#ea580c',
+    image: '/games/ff.png',
     icon: '🔥',
     packages: [
       { id: 'ff-100', diamonds: 100, bonus: 0, price: 0.99, currency: 'USD' },
@@ -88,6 +90,7 @@ export const games = [
     category: 'battle-royale',
     trending: true,
     color: '#f59e0b',
+    image: '/games/pubg.png',
     icon: '🎯',
     packages: [
       { id: 'pubg-60', diamonds: 60, bonus: 0, price: 0.99, currency: 'USD' },
@@ -103,6 +106,7 @@ export const games = [
     category: 'moba',
     trending: false,
     color: '#dc2626',
+    image: '/games/hok.png',
     icon: '👑',
     packages: [
       { id: 'hok-80', diamonds: 80, bonus: 0, price: 1.49, currency: 'USD' },
@@ -117,6 +121,7 @@ export const games = [
     category: 'rpg',
     trending: true,
     color: '#0ea5e9',
+    image: '/games/genshin.png',
     icon: '✨',
     packages: [
       { id: 'gi-60', diamonds: 60, bonus: 0, price: 0.99, currency: 'USD' },
@@ -132,6 +137,7 @@ export const games = [
     category: 'fps',
     trending: false,
     color: '#22c55e',
+    image: '/games/cod.png',
     icon: '💣',
     packages: [
       { id: 'cod-80', diamonds: 80, bonus: 0, price: 0.99, currency: 'USD' },
@@ -146,6 +152,7 @@ export const games = [
     category: 'moba',
     trending: false,
     color: '#8b5cf6',
+    image: '/games/aov.png',
     icon: '🛡️',
     packages: [
       { id: 'rov-90', diamonds: 90, bonus: 0, price: 1.99, currency: 'USD' },
@@ -160,6 +167,7 @@ export const games = [
     category: 'social',
     trending: false,
     color: '#ec4899',
+    image: '/games/zepeto.png',
     icon: '💎',
     packages: [
       { id: 'zp-14', diamonds: 14, bonus: 0, price: 0.99, currency: 'USD' },
@@ -173,18 +181,21 @@ export const paymentMethods = [
   {
     id: 'aba',
     name: 'ABA Pay',
+    image: '/payment/ABA_Logo.png',
     icon: '🏦',
     descriptionKey: 'payment.aba.desc',
   },
   {
     id: 'acleda',
     name: 'ACLEDA',
+    image: '/payment/ACLEDA_Logo.jpg',
     icon: '💳',
     descriptionKey: 'payment.acleda.desc',
   },
   {
     id: 'khqr',
-    name: 'KHQR',
+    name: 'Bakong KHQR',
+    image: '/payment/KHQR_Logo.png',
     icon: '📱',
     descriptionKey: 'payment.khqr.desc',
   },
