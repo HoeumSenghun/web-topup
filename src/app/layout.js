@@ -1,4 +1,5 @@
 import { Inter, Noto_Sans_Khmer } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/next'
 import Script from 'next/script'
 import { cookies } from 'next/headers'
 import './globals.css'
@@ -49,6 +50,7 @@ export default async function RootLayout({ children }) {
         >
           {children}
         </ClientProviders>
+        <Analytics />
       </body>
     </html>
   )
