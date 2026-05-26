@@ -1,1 +1,114 @@
 @import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-khmer: var(--font-noto-khmer), var(--font-inter), system-ui, sans-serif;
+  --color-brand: #6366f1;
+  --color-brand-light: #818cf8;
+  --color-accent: #22d3ee;
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-border: var(--border-color);
+  --color-text: var(--text-primary);
+  --color-text-muted: var(--text-muted);
+}
+
+:root,
+[data-theme="light"] {
+  --surface: #f1f5f9;
+  --surface-elevated: #ffffff;
+  --border-color: #e2e8f0;
+  --text-primary: #0f172a;
+  --text-muted: #64748b;
+  --nav-bg: rgba(255, 255, 255, 0.85);
+  --hero-overlay: rgba(15, 23, 42, 0.4);
+  --glow: rgba(99, 102, 241, 0.15);
+  --card-shadow: 0 4px 24px rgba(15, 23, 42, 0.08);
+}
+
+[data-theme="dark"] {
+  --surface: #0b0f1a;
+  --surface-elevated: #12182b;
+  --border-color: #1e293b;
+  --text-primary: #f1f5f9;
+  --text-muted: #94a3b8;
+  --nav-bg: rgba(11, 15, 26, 0.9);
+  --hero-overlay: rgba(0, 0, 0, 0.5);
+  --glow: rgba(99, 102, 241, 0.25);
+  --card-shadow: 0 4px 32px rgba(0, 0, 0, 0.4);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--surface);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+}
+
+/* Telegram-like smooth theme switch */
+html.theme-transition,
+html.theme-transition *,
+html.theme-transition *::before,
+html.theme-transition *::after {
+  transition-property: background-color, color, border-color, box-shadow, fill, stroke, outline-color;
+  transition-duration: 0.38s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+html.theme-transition .no-theme-transition,
+html.theme-transition .no-theme-transition * {
+  transition: none !important;
+}
+
+.theme-toggle-icon {
+  will-change: transform, opacity;
+}
+
+[data-locale="km"] body,
+:lang(km) {
+  font-family: var(--font-khmer);
+}
+
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-ticker {
+  animation: ticker 40s linear infinite;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s ease-out forwards;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 var(--glow); }
+  50% { box-shadow: 0 0 20px 4px var(--glow); }
+}
+
+.game-card-selected {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #6366f1, #22d3ee);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gaming-grid-bg {
+  background-image:
+    linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
