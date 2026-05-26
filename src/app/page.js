@@ -1,11 +1,19 @@
+import { Suspense } from 'react'
+import HomePage from '@/components/home/HomePage'
+import { getJsonLd } from '@/lib/seo'
 
+export default function Page() {
+  const jsonLd = getJsonLd()
 
-export default function Home() {
   return (
-    <div>
-      <main>
-        <h1 className="text-2xl font-medium underline">Welcome to Diamond Shop</h1>
-      </main>
-    </div>
-  );
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <Suspense fallback={null}>
+        <HomePage />
+      </Suspense>
+    </>
+  )
 }

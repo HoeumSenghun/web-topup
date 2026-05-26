@@ -1,0 +1,22 @@
+import Navbar from '@/components/layout/Navbar'
+import Footer from '@/components/layout/Footer'
+import NotFoundContent from '@/components/errors/NotFoundContent'
+import { siteConfig } from '@/data/mock'
+
+export const metadata = {
+  title: siteConfig.name,
+  description: `The page you requested was not found on ${siteConfig.name}.`,
+  robots: { index: false, follow: true },
+}
+
+export default function NotFound() {
+  return (
+    <>
+      <Navbar />
+      <main>
+        <NotFoundContent />
+      </main>
+      <Footer />
+    </>
+  )
+}

@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Diamond Shop — Cambodia Game Top-Up
 
-## Getting Started
+Production-ready Next.js storefront for game diamond top-ups (MLBB, Free Fire, PUBG, and more). Inspired by Cambodian top-up sites with English/Khmer support, light/dark themes, and a full top-up flow.
 
-First, run the development server:
+## Stack
+
+- Next.js 16 App Router (JavaScript)
+- Tailwind CSS v4
+- Static generation for SEO (`○` prerendered home page)
+- Mock data in `src/data/mock.js` — swap for API later
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Project structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/              # Layout, page, robots, sitemap (.js)
+├── components/       # React components use .jsx
+│   ├── home/         # Hero, games, top-up form
+│   ├── layout/       # Navbar, footer, ticker
+│   └── ui/           # GameCard, breadcrumbs
+├── context/          # AppContext.jsx
+├── data/mock.js      # Games, packages, payments, copy keys
+└── lib/              # i18n, SEO metadata
+```
 
-## Learn More
+## Customize
 
-To learn more about Next.js, take a look at the following resources:
+| What | File |
+|------|------|
+| Site name, contact | `src/data/mock.js` → `siteConfig` |
+| Games & packages | `src/data/mock.js` → `games` |
+| English/Khmer text | `src/lib/i18n.js` |
+| Colors & theme | `src/app/globals.css` CSS variables |
+| SEO title/description | `src/lib/seo.js` |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Top-up flow
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Click a game → `/topup/[gameId]`
+2. **Server + User ID** (verify account) → **Package** → **Payment** → **Receipt**
 
-## Deploy on Vercel
+## Architecture (services → actions)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+src/services/     # Business logic (game, player, order, payment)
+src/actions/      # Server Actions called from pages & client
+src/app/api/      # Optional REST layer (uses same services)
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Pages call `getGames()`, `getGame()`, `getPayments()` from `@/actions/*`.  
+Client top-up uses `verifyPlayer()` and `submitOrder()` server actions.
+
+Locale & theme: `@/actions/preferences` + cookies.
