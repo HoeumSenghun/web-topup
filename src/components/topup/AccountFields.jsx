@@ -3,6 +3,7 @@
 import { UserCircle2, Hash, Info } from 'lucide-react'
 import { t } from '@/lib/i18n'
 import { getGameAccountConfig, ACCOUNT_TYPES } from '@/data/game-accounts'
+import GameIcon from '@/components/icons/GameIcon'
 
 const inputClass =
   'w-full rounded-xl border border-border bg-surface px-4 py-3.5 text-lg font-medium tracking-wide text-text outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/25'
@@ -37,10 +38,10 @@ export default function AccountFields({
         </p>
         <div className="flex items-stretch gap-3 rounded-lg bg-surface-elevated p-3 ring-1 ring-border">
           <div
-            className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-sm font-bold text-white"
-            style={{ backgroundColor: game.color }}
+            className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-full ring-1 ring-border"
+            style={{ backgroundColor: `${game.color}22` }}
           >
-            {game.name.slice(0, 2).toUpperCase()}
+            <GameIcon gameId={game.id} className="h-12 w-12 rounded-full" />
           </div>
           <div className="flex flex-1 flex-col justify-center gap-1 text-sm">
             {isDual ? (
