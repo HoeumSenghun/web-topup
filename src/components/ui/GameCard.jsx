@@ -22,10 +22,19 @@ export default function GameCard({ game, compact = false }) {
       aria-current={isActive ? 'page' : undefined}
     >
       <span
-        className={`flex items-center justify-center rounded-xl ${compact ? 'h-14 w-14' : 'h-16 w-16'}`}
+        className={`relative flex items-center justify-center overflow-hidden rounded-xl ${compact ? 'h-14 w-14' : 'h-16 w-16'}`}
         style={{ backgroundColor: `${game.color}22`, color: game.color }}
       >
-        <GameIcon gameId={game.id} className={compact ? 'h-7 w-7' : 'h-8 w-8'} />
+        <GameIcon
+          gameId={game.id}
+          className={`transition-opacity duration-200 group-hover:opacity-30 ${compact ? 'h-7 w-7' : 'h-8 w-8'}`}
+        />
+        <span
+          className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/50 px-1 text-center text-[10px] font-bold uppercase leading-tight tracking-wide text-white opacity-0 transition-opacity duration-200 group-hover:opacity-100 sm:text-xs"
+          aria-hidden
+        >
+          {t(locale, 'hero.cta')}
+        </span>
       </span>
       <span
         className={`mt-3 text-center font-semibold text-text ${compact ? 'text-xs' : 'text-sm'}`}
