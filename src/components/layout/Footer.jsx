@@ -12,9 +12,9 @@ import {
   navLinks,
 } from '@/data/mock'
 
-const colClass = 'text-center sm:text-left'
+const colClass = 'w-full max-w-xs text-left sm:max-w-none'
 const listClass = 'space-y-2'
-const linkRowClass = 'flex items-center justify-center gap-2 sm:justify-start'
+const linkRowClass = 'flex items-center justify-start gap-2'
 
 export default function Footer() {
   const { locale } = useApp()
@@ -23,11 +23,11 @@ export default function Footer() {
   return (
     <footer className="border-t border-border bg-surface-elevated">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid justify-items-center gap-10 sm:grid-cols-2 sm:justify-items-start lg:grid-cols-4">
           <div className={colClass}>
             <Link
               href="/"
-              className="inline-flex items-center justify-center gap-2 font-bold sm:justify-start"
+              className="inline-flex items-center gap-2 font-bold"
             >
               <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-linear-to-br from-indigo-500 to-cyan-400 text-white">
                 <Gem className="h-5 w-5" aria-hidden />
