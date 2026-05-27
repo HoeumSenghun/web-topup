@@ -10,13 +10,12 @@ export default function sitemap() {
     priority: 0.8,
   }))
 
-  return [
-    {
-      url: siteConfig.url,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 1,
-    },
-    ...gameUrls,
-  ]
+  const staticPages = ['', '/games', '/topup', '/promo', '/contact'].map((path) => ({
+    url: `${siteConfig.url}${path}`,
+    lastModified: new Date(),
+    changeFrequency: path === '' ? 'daily' : 'weekly',
+    priority: path === '' ? 1 : 0.9,
+  }))
+
+  return [...staticPages, ...gameUrls]
 }

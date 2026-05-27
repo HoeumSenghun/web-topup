@@ -163,7 +163,7 @@ export default function TopUpFlow({ game, paymentMethods }) {
     <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
       <Breadcrumbs
         items={[
-          { label: t(locale, 'section.games'), href: '/#games' },
+          { label: t(locale, 'nav.topup'), href: '/topup' },
           { label: game.name, href: `/topup/${game.id}` },
         ]}
       />
@@ -423,7 +423,7 @@ export default function TopUpFlow({ game, paymentMethods }) {
               </button>
             ) : (
               <Link
-                href="/#games"
+                href="/topup"
                 className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-border py-3 text-sm font-semibold text-text transition hover:bg-surface"
               >
                 <ArrowLeft className="h-4 w-4" aria-hidden />

@@ -56,7 +56,7 @@ export default function HeroCarousel() {
                   {t(locale, b.subtitleKey)}
                 </p>
                 <Link
-                  href="/#games"
+                  href="/topup"
                   className="mt-6 inline-flex w-fit items-center gap-2 rounded-xl bg-white px-6 py-3 text-sm font-bold text-indigo-700 shadow-lg transition hover:scale-105 hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
                 >
                   {t(locale, b.ctaKey)}

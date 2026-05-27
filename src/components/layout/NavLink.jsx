@@ -1,44 +1,27 @@
 'use client'
 
 import Link from 'next/link'
-import { usePathname, useRouter } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 
-function scrollToSection(sectionId) {
-  const el = document.getElementById(sectionId)
-  if (el) {
-    el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    window.history.replaceState(null, '', `#${sectionId}`)
+function isNavActive(pathname, href) {
+  if (href === '/') return pathname === '/'
+  if (href === '/topup') {
+    return pathname === '/topup' || pathname.startsWith('/topup/')
   }
+  return pathname === href || pathname.startsWith(`${href}/`)
 }
 
-export default function NavLink({
-  href,
-  section,
-  className,
-  children,
-  onNavigate,
-}) {
+export default function NavLink({ href, className, children, onNavigate }) {
   const pathname = usePathname()
-  const router = useRouter()
-  const sectionId = section ?? (href.includes('#') ? href.split('#')[1] : null)
-
-  function handleClick(e) {
-    onNavigate?.()
-
-    if (!sectionId) return
-
-    if (pathname === '/') {
-      e.preventDefault()
-      scrollToSection(sectionId)
-      return
-    }
-
-    e.preventDefault()
-    router.push(`/#${sectionId}`)
-  }
+  const active = isNavActive(pathname, href)
 
   return (
-    <Link href={href} className={className} onClick={handleClick}>
+    <Link
+      href={href}
+      className={`${className}${active ? ' bg-surface-elevated text-text' : ''}`.trim()}
+      onClick={() => onNavigate?.()}
+      aria-current={active ? 'page' : undefined}
+    >
       {children}
     </Link>
   )

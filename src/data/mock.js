@@ -8,11 +8,11 @@ export const siteConfig = {
 }
 
 export const navLinks = [
-  { href: '/#home', key: 'nav.home', section: 'home' },
-  { href: '/#games', key: 'nav.games', section: 'games' },
-  { href: '/#games', key: 'nav.topup', section: 'games' },
-  { href: '/#promo', key: 'nav.promo', section: 'promo' },
-  { href: '/#contact', key: 'nav.contact', section: 'contact' },
+  { href: '/', key: 'nav.home' },
+  { href: '/games', key: 'nav.games' },
+  { href: '/topup', key: 'nav.topup' },
+  { href: '/promo', key: 'nav.promo' },
+  { href: '/contact', key: 'nav.contact' },
 ]
 
 export const promoTicker = [
@@ -202,15 +202,15 @@ export const paymentMethods = [
 ]
 
 export const footerCategories = [
-  { key: 'footer.cat.moba', href: '/#games', section: 'games' },
-  { key: 'footer.cat.battle', href: '/#games', section: 'games' },
-  { key: 'footer.cat.rpg', href: '/#games', section: 'games' },
-  { key: 'footer.cat.fps', href: '/#games', section: 'games' },
+  { key: 'footer.cat.moba', href: '/games' },
+  { key: 'footer.cat.battle', href: '/games' },
+  { key: 'footer.cat.rpg', href: '/games' },
+  { key: 'footer.cat.fps', href: '/games' },
 ]
 
 export const footerQuickLinks = [
-  { key: 'footer.link.faq', href: '/#contact', section: 'contact' },
-  { key: 'footer.link.terms', href: '#' },
-  { key: 'footer.link.privacy', href: '#' },
-  { key: 'footer.link.refund', href: '#' },
+  { key: 'footer.link.faq', href: '/contact' },
+  { key: 'footer.link.terms', href: '/contact' },
+  { key: 'footer.link.privacy', href: '/contact' },
+  { key: 'footer.link.refund', href: '/contact' },
 ]
