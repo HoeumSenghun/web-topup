@@ -1,5 +1,4 @@
-import Navbar from '@/components/layout/Navbar'
-import Footer from '@/components/layout/Footer'
+import SiteShell from '@/components/layout/SiteShell'
 import NotFoundContent from '@/components/errors/NotFoundContent'
 import { siteConfig } from '@/data/mock'
 
@@ -11,12 +10,8 @@ export const metadata = {
 
 export default function NotFound() {
   return (
-    <>
-      <Navbar />
-      <main>
-        <NotFoundContent />
-      </main>
-      <Footer />
-    </>
+    <SiteShell>
+      <NotFoundContent />
+    </SiteShell>
   )
 }

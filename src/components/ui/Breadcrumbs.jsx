@@ -8,7 +8,7 @@ export default function Breadcrumbs({ items = [] }) {
   const { locale } = useApp()
 
   const crumbs = [
-    { label: t(locale, 'breadcrumb.home'), href: '/#home' },
+    { label: t(locale, 'breadcrumb.home'), href: '/' },
     ...items,
   ]
 

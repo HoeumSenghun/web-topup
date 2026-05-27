@@ -1,8 +1,10 @@
 import { Suspense } from 'react'
-import HomePage from '@/components/home/HomePage'
 import { getJsonLd } from '@/lib/seo'
+import HeroCarousel from '@/components/home/HeroCarousel'
+import TrendingGames from '@/components/home/TrendingGames'
+import GamesGrid from '@/components/home/GamesGrid'
 
-export default function Page() {
+export default function HomePage() {
   const jsonLd = getJsonLd()
 
   return (
@@ -12,7 +14,9 @@ export default function Page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Suspense fallback={null}>
-        <HomePage />
+        <HeroCarousel />
+        <TrendingGames />
+        <GamesGrid />
       </Suspense>
     </>
   )

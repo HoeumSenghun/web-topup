@@ -12,8 +12,7 @@ export default function TrendingGames() {
   if (isSearchActive) return null
 
   return (
-    <section id="promo" className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-      <Breadcrumbs items={[{ label: t(locale, 'section.trending'), href: '#promo' }]} />
+    <section id="trending" className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
       <header className="mb-8">
         <h2 className="text-2xl font-bold text-text sm:text-3xl">
           {t(locale, 'section.trending')}

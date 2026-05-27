@@ -53,7 +53,7 @@ export default function NotFoundContent() {
             {t(locale, 'notFound.home')}
           </Link>
           <Link
-            href="/#games"
+            href="/topup"
             className="inline-flex items-center justify-center gap-2 rounded-xl border border-border bg-surface-elevated px-6 py-3.5 text-sm font-bold text-text transition hover:border-brand hover:bg-surface focus:outline-none focus-visible:ring-2 focus-visible:ring-brand"
           >
             <Gamepad2 className="h-4 w-4" aria-hidden />

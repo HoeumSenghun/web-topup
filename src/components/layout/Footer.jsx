@@ -21,7 +21,7 @@ export default function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer id="contact" className="border-t border-border bg-surface-elevated">
+    <footer className="border-t border-border bg-surface-elevated">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div className={colClass}>
@@ -46,7 +46,6 @@ export default function Footer() {
                 <li key={link.key}>
                   <NavLink
                     href={link.href}
-                    section={link.section}
                     className="text-sm text-text-muted transition hover:text-brand"
                   >
                     {t(locale, link.key)}
@@ -57,7 +56,6 @@ export default function Footer() {
                 <li key={link.key}>
                   <NavLink
                     href={link.href}
-                    section={link.section}
                     className="text-sm text-text-muted transition hover:text-brand"
                   >
                     {t(locale, link.key)}
@@ -76,7 +74,6 @@ export default function Footer() {
                 <li key={cat.key}>
                   <NavLink
                     href={cat.href}
-                    section={cat.section ?? 'games'}
                     className="text-sm text-text-muted transition hover:text-brand"
                   >
                     {t(locale, cat.key)}

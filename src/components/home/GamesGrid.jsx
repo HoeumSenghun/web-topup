@@ -1,12 +1,15 @@
 'use client'
 
+import { usePathname } from 'next/navigation'
 import { useApp } from '@/context/AppContext'
 import { t } from '@/lib/i18n'
 import GameCard from '@/components/ui/GameCard'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
 
 export default function GamesGrid() {
+  const pathname = usePathname()
   const { locale, filteredGames, isSearchActive, searchQuery } = useApp()
+  const isGamesPage = pathname === '/games'
 
   const resultsLabel = t(locale, 'search.results').replace(
     '{count}',
@@ -14,11 +17,16 @@ export default function GamesGrid() {
   )
 
   return (
-    <section id="games" className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 scroll-mt-20">
-      <Breadcrumbs items={[{ label: t(locale, 'section.games'), href: '/#games' }]} />
+    <section
+      id="games"
+      className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 scroll-mt-20"
+    >
+      {isGamesPage && (
+        <Breadcrumbs items={[{ label: t(locale, 'section.games'), href: '/games' }]} />
+      )}
       <header className="mb-8">
         <h2 className="text-2xl font-bold text-text sm:text-3xl">
-          {t(locale, 'section.games')}
+          {isGamesPage ? t(locale, 'page.games.title') : t(locale, 'section.games')}
         </h2>
         {isSearchActive ? (
           <p className="mt-1 text-text-muted">

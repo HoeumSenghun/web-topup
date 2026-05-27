@@ -1,6 +1,4 @@
 import { notFound } from 'next/navigation'
-import Navbar from '@/components/layout/Navbar'
-import Footer from '@/components/layout/Footer'
 import TopUpFlow from '@/components/topup/TopUpFlow'
 import { getGame } from '@/actions/games'
 import { getPayments } from '@/actions/payments'
@@ -23,7 +21,7 @@ export async function generateMetadata({ params }) {
   }
 }
 
-export default async function TopUpPage({ params }) {
+export default async function TopUpGamePage({ params }) {
   const { gameId } = await params
   const [game, paymentMethods] = await Promise.all([
     getGame(gameId),
@@ -32,13 +30,5 @@ export default async function TopUpPage({ params }) {
 
   if (!game) notFound()
 
-  return (
-    <>
-      <Navbar />
-      <main>
-        <TopUpFlow game={game} paymentMethods={paymentMethods} />
-      </main>
-      <Footer />
-    </>
-  )
+  return <TopUpFlow game={game} paymentMethods={paymentMethods} />
 }
